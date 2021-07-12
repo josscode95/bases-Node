@@ -7,10 +7,12 @@ const crearArchivo = async(variable = 5, listar = false, hasta) => {
    try {
    
       let salida = '';
+      let consola = '';
 
       for(let numero = 1; numero <= hasta; numero++){
 
-         salida += (`${variable} ${'x'.green} ${numero} ${'='.green} ${numero*variable}\n`);
+         salida += `${variable} x ${numero} = ${numero*variable}\n`;
+         consola += `${variable} ${'x'.green} ${numero} ${'='.green} ${numero*variable}\n`;
 
       }
 
@@ -20,11 +22,11 @@ const crearArchivo = async(variable = 5, listar = false, hasta) => {
          console.log(`           Tabla del: ${variable}`)
          console.log('======================================='.green);
 
-         console.log(salida);
+         console.log(consola);
 
       }
 
-      fs.writeFileSync(`tabla-${variable}.txt`, salida);
+      fs.writeFileSync(`./salida/tabla-${variable}.txt`, salida);
 
       return `tabla-${variable}.txt `;
 
